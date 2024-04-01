@@ -6,12 +6,12 @@ function add(task) {
 
     if (!todosList) {
         todosList = [];
-    } else {
-        todosList.push({
-            text: task,
-            done: false,
-        });
     }
+
+    todosList.push({
+        text: task,
+        done: false,
+    });
     
     conf.set('todo-list', todosList);
     console.log(chalk.green.bold('Task has been added successfully!'))
