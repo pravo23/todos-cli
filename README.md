@@ -17,7 +17,7 @@ npm install -g todos-cli-app
 1. Clone the repository:
 
 ```
-git clone <repository-url>
+git clone git@github.com:pravo23/todos-cli.git
 ```
 
 2. Navigate to the project directory:
