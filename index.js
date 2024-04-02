@@ -2,7 +2,7 @@
 const { program } = require("commander");
 const list = require("./commands/list");
 const add = require("./commands/add");
-const markDone = require("./commands/markDone");
+const updateDoneStatus = require("./commands/updateDoneStatus");
 
 program.command("list").description("List all the TODO tasks").action(list);
 
@@ -15,6 +15,9 @@ program
     "-t --tasks <tasks...>",
     "The tasks to mark done. If not specified, all tasks will be marked done.",
   )
-  .action(markDone);
+  .option("-u, --undone", "Revert the task status")
+  .action((options) => {
+    updateDoneStatus(options);
+  });
 
-program.parse();
+program.parse(process.argv);
