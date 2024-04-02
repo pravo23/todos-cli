@@ -1,19 +1,20 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
+const constants = require('../constants');
 
 const add = (task) => {
-  let todosList = conf.get("todo-list");
+  let todoLists = conf.get(constants.todoLists);
 
-  if (!todosList) {
-    todosList = [];
+  if (!todoLists) {
+    todoLists = [];
   }
 
-  todosList.push({
+  todoLists.push({
     text: task,
     done: false,
   });
 
-  conf.set("todo-list", todosList);
+  conf.set(constants.todoLists, todoLists);
   console.log(chalk.green.bold("Task has been added successfully!"));
 };
 

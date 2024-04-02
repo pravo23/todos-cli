@@ -1,15 +1,15 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
+const constants = require('../constants');
 
 const updateDoneStatus = (options) => {
   const { tasks, undone } = options;
 
-  console.log(`tasks :: ${tasks}, undone :: ${undone}`);
-  let todosList = conf.get("todo-list");
+  let todoLists = conf.get(constants.todoLists);
   const doneStatus = !undone ? true : false;
 
-  if (todosList) {
-    todosList.map((task, index) => {
+  if (todoLists) {
+    todoLists.map((task, index) => {
       if (tasks) {
         if (tasks.indexOf((index + 1).toString()) != -1) {
           task.done = doneStatus;
@@ -21,7 +21,7 @@ const updateDoneStatus = (options) => {
       return task;
     });
 
-    conf.set("todo-list", todosList);
+    conf.set(constants.todoLists, todoLists);
   }
 
   console.log(

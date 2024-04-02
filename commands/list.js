@@ -1,8 +1,9 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
+const constants = require("../constants")
 
 const list = () => {
-  const todoList = conf.get("todo-list");
+  const todoList = conf.get(constants.todoLists);
 
   if (todoList && todoList.length) {
     // user have tasks in todo-list
