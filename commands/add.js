@@ -1,7 +1,7 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
 
-const add =  (task) => {
+const add = (task) => {
   let todosList = conf.get("todo-list");
 
   if (!todosList) {
@@ -15,6 +15,6 @@ const add =  (task) => {
 
   conf.set("todo-list", todosList);
   console.log(chalk.green.bold("Task has been added successfully!"));
-}
+};
 
 module.exports = add;
