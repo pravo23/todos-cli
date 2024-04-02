@@ -1,6 +1,6 @@
 const conf = new (require("conf"))();
-const chalk = require("chalk");
-const constants = require('../constants');
+const constants = require("../constants");
+const logger = require("../config/logger");
 
 const add = (task) => {
   let todoLists = conf.get(constants.todoLists);
@@ -15,7 +15,7 @@ const add = (task) => {
   });
 
   conf.set(constants.todoLists, todoLists);
-  console.log(chalk.green.bold("Task has been added successfully!"));
+  logger.success("Task has been added successfully!");
 };
 
 module.exports = add;

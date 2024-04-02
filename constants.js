@@ -1,4 +1,4 @@
-
-module.exports =  {
-    'todoLists' : 'todo-list',
-}
+module.exports = {
+  todoLists: "todo-list",
+  cliToolLoggerName: "todo-list-cli",
+};
