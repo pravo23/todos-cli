@@ -76,10 +76,10 @@ Mark task(s) as undone:
 todos mark-done -ut <task1> <task2> ...
 ```
 
+If no tasks are specified, all tasks will be marked as done/undone.
+
 Remove task(s):
 
 ```
 todos rm -t <task1> <task2> ...
 ```
-
-If no tasks are specified, all tasks will be marked as done.
