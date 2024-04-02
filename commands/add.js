@@ -1,7 +1,7 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
 
-function add(task) {
+const add =  (task) => {
   let todosList = conf.get("todo-list");
 
   if (!todosList) {
