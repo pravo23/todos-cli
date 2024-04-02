@@ -1,7 +1,7 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
 
-function list() {
+const list = () => {
   const todoList = conf.get("todo-list");
 
   if (todoList && todoList.length) {
@@ -23,6 +23,6 @@ function list() {
     // user does not have task in todo-list
     console.log(chalk.red.bold("You don't have any task yet."));
   }
-}
+};
 
 module.exports = list;

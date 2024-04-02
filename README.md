@@ -46,7 +46,9 @@ To use the Todos CLI application, follow these steps:
 
 - `todos add <task>`: Add a new todo task.
 
-- `todos mark-done`: Mark task(s) as done.
+- `todos mark-done`: Mark task(s) as done or undone.
+
+- `todos rm -t <task1> <task2> ...`: Remove task(s) from the list
 
 ### Examples:
 
@@ -68,4 +70,16 @@ Mark task(s) as done:
 todos mark-done -t <task1> <task2> ...
 ```
 
-If no tasks are specified, all tasks will be marked as done.
+Mark task(s) as undone:
+
+```
+todos mark-done -ut <task1> <task2> ...
+```
+
+If no tasks are specified, all tasks will be marked as done/undone.
+
+Remove task(s):
+
+```
+todos rm -t <task1> <task2> ...
+```

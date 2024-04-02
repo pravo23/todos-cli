@@ -1,7 +1,7 @@
 const conf = new (require("conf"))();
 const chalk = require("chalk");
 
-function updateDoneStatus(options) {
+const updateDoneStatus = (options) => {
   const { tasks, undone } = options;
 
   console.log(`tasks :: ${tasks}, undone :: ${undone}`);
@@ -29,6 +29,6 @@ function updateDoneStatus(options) {
       `Tasks have been marked as ${doneStatus ? "done" : "undone"} successfully`,
     ),
   );
-}
+};
 
 module.exports = updateDoneStatus;
