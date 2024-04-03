@@ -1,6 +1,6 @@
 const conf = new (require("conf"))();
-const chalk = require("chalk");
-const constants = require('../constants');
+const constants = require("../constants");
+const logger = require("../config/logger");
 
 const updateDoneStatus = (options) => {
   const { tasks, undone } = options;
@@ -24,10 +24,8 @@ const updateDoneStatus = (options) => {
     conf.set(constants.todoLists, todoLists);
   }
 
-  console.log(
-    chalk.green.bold(
-      `Tasks have been marked as ${doneStatus ? "done" : "undone"} successfully`,
-    ),
+  logger.success(
+    `Tasks have been marked as ${doneStatus ? "done" : "undone"} successfully`,
   );
 };
 

@@ -1,28 +1,26 @@
 const conf = new (require("conf"))();
-const chalk = require("chalk");
-const constants = require("../constants")
+const constants = require("../constants");
+const logger = require("../config/logger");
 
 const list = () => {
   const todoList = conf.get(constants.todoLists);
 
   if (todoList && todoList.length) {
-    // user have tasks in todo-list
-    console.log(
-      chalk.blue.bold(
-        "Task in green are done. task in yellow are still not done.",
-      ),
+    logger.highlight(
+      "Task in green are done. task in yellow are still not done.",
     );
 
     todoList.forEach((task, index) => {
+      let message = `${index + 1}. ${task.text}`;
       if (task.done) {
-        console.log(chalk.greenBright(`${index + 1}. ${task.text}`));
+        logger.success(message);
       } else {
-        console.log(chalk.yellowBright(`${index + 1}. ${task.text}`));
+        logger.info(message);
       }
     });
   } else {
     // user does not have task in todo-list
-    console.log(chalk.red.bold("You don't have any task yet."));
+    logger.alert("You don't have any task yet.");
   }
 };
 

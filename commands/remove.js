@@ -1,6 +1,6 @@
 const conf = new (require("conf"))();
-const chalk = require("chalk");
-const constants = require('../constants');
+const constants = require("../constants");
+const logger = require("../config/logger");
 
 const removeTasks = (tasks) => {
   let todoLists = conf.get(constants.todoLists) || [];
@@ -10,11 +10,11 @@ const removeTasks = (tasks) => {
 
   conf.set(constants.todoLists, filteredTodoLists);
 
-  if (tasks.length > 0) {
-    console.log(
-      chalk.red.bold(
-        `Tasks: ${tasks.join(", ")} have been removed successfully`,
-      ),
+  if (todoLists.length > 0) {
+    logger.alert(`Tasks: ${tasks.join(", ")} have been removed successfully`);
+  } else {
+    logger.alert(
+      `Tasks: ${tasks.join(", ")} can not be removed as there is not active task present`,
     );
   }
 };
